@@ -467,9 +467,13 @@ MonoBehaviour:
     \u0438 \u044F \u0441\u043E\u0436\u0440\u0443 \u0442\u0432\u043E\u0439 \u043C\u043E\u0437\u0433!"
   SadVoise: 0
   HappyVoise: 0
+  YesVoise: 0
+  NoVoise: 0
   Go: 0
-  Sad: {fileID: 8300000, guid: 6fbe133232ff40e46904c0784f32523f, type: 3}
-  Happy: {fileID: 0}
+  Sad: {fileID: 8300000, guid: 16c244af42322e7419cb712f747fe0a7, type: 3}
+  Happy: {fileID: 8300000, guid: cca36b1df6c7967419ebf6748314aa3b, type: 3}
+  Yes: {fileID: 8300000, guid: cfbd36e595c1e384d9753bb0b4e2db12, type: 3}
+  No: {fileID: 8300000, guid: a5917e9c3f4baf14fb6d2ffdb8ba3218, type: 3}
 --- !u!1 &1178085758
 GameObject:
   m_ObjectHideFlags: 0
