@@ -10,9 +10,13 @@ public class Dialogue_script : MonoBehaviour
     public string DialogueText;
     public bool SadVoise;
     public bool HappyVoise;
+    public bool YesVoise;
+    public bool NoVoise;
     public bool Go;
     public AudioClip Sad;
     public AudioClip Happy;
+    public AudioClip Yes;
+    public AudioClip No;
     int Voise = 0;
 
 
@@ -28,6 +32,16 @@ public class Dialogue_script : MonoBehaviour
             Voise = 2;
             HappyVoise = false;
         }
+        if (NoVoise)
+        {
+            Voise = 3;
+            NoVoise = false;
+        }
+        if (YesVoise)
+        {
+            Voise = 4;
+            YesVoise = false;
+        }
         if (Go)
         {
             Go = false;
@@ -38,6 +52,12 @@ public class Dialogue_script : MonoBehaviour
                     break;
                 case 2:
                     gameObject.GetComponent<AudioSource>().clip = Happy;
+                    break;
+                case 3:
+                    gameObject.GetComponent<AudioSource>().clip = No;
+                    break;
+                case 4:
+                    gameObject.GetComponent<AudioSource>().clip = Yes;
                     break;
             }
             GameObject.Find("Canvas/Text").GetComponent<TextMeshProUGUI>().text = "";
