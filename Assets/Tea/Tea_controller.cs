@@ -4,19 +4,81 @@ using UnityEngine;
 
 public class Tea_controller : MonoBehaviour
 {
-    public GameObject[] Inventar = new GameObject[12];
+    public bool[] Inventar = new bool[12];
+    public bool Go;
+    public bool Stop;
+    public bool AuotoStop;
+    public bool TrueIngridient;
+    public bool FalseIngridient;
 
-    void Start()
+       // Update is called once per frame
+    void Update()
     {
-        for (int i=0; i<12; i++)
+        if (Go)
         {
-            Instantiate(Inventar[i]);
+            TrueIngridient = false;
+            FalseIngridient = false;
+
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Sugar()
     {
-        
+
     }
+
+    public void Honey()
+    {
+
+    }
+
+    public void Jam()
+    {
+
+    }
+
+    public void Milk()
+    {
+
+    }
+
+    public void Lemon()
+    {
+
+    }
+
+    public void Tea()
+    {
+
+    }
+
+    public void Water()
+    {
+
+    }
+
+    public void Salt()
+    {
+
+    }
+
+    public void Pepper()
+    {
+
+    }
+
+    public void Peas()
+    {
+
+    }
+
+    public void Flour()
+    {
+
+    }
+    public void Pasta()
+    {
+
+    }
+
 }
