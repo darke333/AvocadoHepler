@@ -15,7 +15,17 @@ ModelImporter:
   - first:
       74: -3593546095556610188
     second: Up-chest|Up-chestAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: METAL
+    second: {fileID: 2100000, guid: 7dab1c4039da2be47b928b4e5386a048, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TREE
+    second: {fileID: 2100000, guid: 7773fd981e673cf49ba84ee03299afff, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -97,7 +107,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.001
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
