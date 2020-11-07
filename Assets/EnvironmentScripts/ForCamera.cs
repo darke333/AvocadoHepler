@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ForCamera : MonoBehaviour
 {
+    public GameObject kust;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,6 @@ public class ForCamera : MonoBehaviour
     void Update()
     {
         gameObject.transform.position += new Vector3(0, 0.01f, 0);
+        gameObject.transform.LookAt(kust.transform);
     }
 }
