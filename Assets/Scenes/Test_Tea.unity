@@ -517,10 +517,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventar: 000000000000000000000000
   Go: 0
-  Stop: 0
+  Reset: 0
   AuotoStop: 0
   TrueIngridient: 0
   FalseIngridient: 0
+  NeadIngridient: 0
 --- !u!4 &561725928
 Transform:
   m_ObjectHideFlags: 0
