@@ -60,7 +60,7 @@ public class Dialogue_script : MonoBehaviour
                     gameObject.GetComponent<AudioSource>().clip = Yes;
                     break;
             }
-            GameObject.Find("Canvas/Text").GetComponent<TextMeshProUGUI>().text = "";
+            GameObject.Find("Text").GetComponent<TextMeshPro>().text = "";
             gameObject.GetComponent<AudioSource>().Play();
              StartCoroutine(Printer());
         }
@@ -70,7 +70,7 @@ public class Dialogue_script : MonoBehaviour
     {
         for (int i=0; i< DialogueText.Length; i++)
         {
-            GameObject.Find("Canvas/Text").GetComponent<TextMeshProUGUI>().text += DialogueText[i];
+            GameObject.Find("Text").GetComponent<TextMeshPro>().text += DialogueText[i];
             yield return new WaitForSeconds(0.1f);
         }
     }

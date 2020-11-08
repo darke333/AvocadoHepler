@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4378672458812927155}
   - component: {fileID: 5930722458112885193}
+  - component: {fileID: 8984663143166690707}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -52,6 +53,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8984663143166690707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765456622058364576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98aa5309277b8c94989cec47186b123d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Go: 0
+  game_Object:
+  - {fileID: 8879305470649153358, guid: 792f020d3abce8e408ab40fe3d4d7ee0, type: 3}
+  - {fileID: 6357006650764825493, guid: aff4db2796de99841a7b54edc363882f, type: 3}
+  - {fileID: 7816021488407335394, guid: a4480006eca962f4aa8dea0e09085e4e, type: 3}
+  - {fileID: 2212494597768826271, guid: c5030127be24c1b4398e1655e6fd098e, type: 3}
+  - {fileID: 6744555711211337868, guid: 72da0ce283a595f4190c42d8127e8df7, type: 3}
+  - {fileID: 687132564305105172, guid: 4cc1dd67578bf04409a91c3a07d6d40b, type: 3}
+  - {fileID: 7273363953415432500, guid: be257e1d1f2e8be48b0fbb54ee07fd5e, type: 3}
+  - {fileID: 93707546288314639, guid: 6042f91ba0f6a9d4abd679d035e49914, type: 3}
+  - {fileID: 1025791173216560211, guid: 795b2a817fe0d7443949a845b36eba9d, type: 3}
+  - {fileID: 3595975819516212907, guid: a469c555b59521d41bdd025f4a2e9c8b, type: 3}
+  box: {fileID: 765456622058364576}
+  ThisObject: {fileID: 0}
+  znach: ffffffffffffffffffffffffffffffff
 --- !u!1 &7806744218558682517
 GameObject:
   m_ObjectHideFlags: 0
