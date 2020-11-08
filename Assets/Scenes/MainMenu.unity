@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.31706125, g: 0.8903098, b: 0.8962264, a: 1}
+  m_Material: {fileID: 2100000, guid: 445d8ac3ee42942ad8924f6021b2d7f1, type: 2}
+  m_Color: {r: 0.9622642, g: 0.8866768, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.212
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -391,6 +391,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f38c4fa0bf54d472f8f86626652797a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f38c4fa0bf54d472f8f86626652797a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -595,6 +600,7 @@ MonoBehaviour:
   transitionAnimator: {fileID: 2138043112}
   cameraAnimator: {fileID: 631222922}
   particleSystem: {fileID: 1975864964}
+  waitSeconds: 2
 --- !u!95 &631222922
 Animator:
   serializedVersion: 3

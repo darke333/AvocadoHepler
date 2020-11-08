@@ -20,58 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be21b51-798e-4bb8-b287-94a2f97e3454" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/contentModel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Images/White_Circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Images/White_Circle.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/cube 1.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/cube 1.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/cube 2.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/cube 2.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/cube.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/cube.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/CustumCube_mat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/CustumCube_mat.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_AlbedoTransparency.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_AlbedoTransparency.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_Emission.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_Emission.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_MetallicSmoothness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_MetallicSmoothness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Custom Cube/cube_cube_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Editor.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/CubeRoom.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/CubeRoom.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Environment.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Environment.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SteamVR.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SteamVR/OpenVRAutoUpdater.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Camera/Main Camera.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Camera/Main Camera.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Camera/ZoomOut.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Camera/ZoomOut.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +86,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604782269214</updated>
-      <workItem from="1604782274467" duration="6745000" />
+      <workItem from="1604782274467" duration="7068000" />
+      <workItem from="1604807274570" duration="43000" />
+      <workItem from="1604807337978" duration="753000" />
     </task>
     <servers />
   </component>
@@ -151,27 +107,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/VRGaze.cs</url>
-          <line>65</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" initialLine="57">
-            <startOffsets>
-              <option value="2094" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2095" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

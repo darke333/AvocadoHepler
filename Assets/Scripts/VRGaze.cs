@@ -22,7 +22,10 @@ public class VRGaze : MonoBehaviour
     public Animator transitionAnimator;
     public Animator cameraAnimator;
     public ParticleSystem particleSystem;
-    
+
+    private int nextScene;
+    public int waitSeconds = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,24 +53,30 @@ public class VRGaze : MonoBehaviour
              {
                  animator.SetBool("IsSelected", true);
                  particleSystem.Play();
-                 
-                 // if (_hit.transform.CompareTag("Level1"))
-                 //     SceneManager.LoadScene(1);
-                 // else if (_hit.transform.CompareTag("Level2"))
-                 //     SceneManager.LoadScene(2);
-                 // else if (_hit.transform.CompareTag("Level3"))
-                 //     SceneManager.LoadScene(3);
+
+                 if (_hit.transform.CompareTag("Level1"))
+                     nextScene = 1;
+                 else if (_hit.transform.CompareTag("Level2"))
+                     nextScene = 2;
+                 else if (_hit.transform.CompareTag("Level3"))
+                     nextScene = 3;
 
                  LoadNextScene();
              }
              
              canvas.transform.localPosition = new Vector3(canvas.transform.localPosition.x, canvas.transform.localPosition.y, (_hit.distance + 0.15f));
-             // if (_hit.distance > -100 && _hit.distance < 100)
-             // canvas.transform.localScale *= _hit.distance / 2.3f;
+             
+             if (_hit.distance > -100 && _hit.distance < 100)
+             {
+                 float tmp = _hit.distance * 0.00012308f;
+                 canvas.transform.localScale = new Vector3(tmp,tmp,tmp);
+             }
+               
          }
          
          if (!animator.GetBool("IsShaking"))
              animator.SetBool("IsSelected", false);
+         Debug.Log(_hit.distance);
 
     }
 
@@ -89,7 +98,7 @@ public class VRGaze : MonoBehaviour
 
     public void LoadNextScene()
     {
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(nextScene));
     }
 
     IEnumerator LoadLevel(int level)
@@ -97,7 +106,7 @@ public class VRGaze : MonoBehaviour
         transitionAnimator.SetTrigger("Start");
         cameraAnimator.SetTrigger("Start");
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(waitSeconds);
         SceneManager.LoadScene(level);
     }
 }
