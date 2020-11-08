@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Level1
+  - Level2
+  - Level3
   layers:
   - Default
   - TransparentFX
