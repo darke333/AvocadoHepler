@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be21b51-798e-4bb8-b287-94a2f97e3454" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AvocadoHepler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Camera/Main Camera.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Camera/Main Camera.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Camera/ZoomOut.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Camera/ZoomOut.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SteamVR/OpenVRAutoUpdater.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/VRTargetItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Clicker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -44,6 +44,7 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/VRGaze.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Clicker.cs" />
       </list>
     </option>
   </component>
@@ -88,7 +89,7 @@
       <updated>1604782269214</updated>
       <workItem from="1604782274467" duration="7068000" />
       <workItem from="1604807274570" duration="43000" />
-      <workItem from="1604807337978" duration="753000" />
+      <workItem from="1604807337978" duration="2226000" />
     </task>
     <servers />
   </component>

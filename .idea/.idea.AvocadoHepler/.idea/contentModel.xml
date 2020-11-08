@@ -281,7 +281,15 @@
         <e p="Magic box" t="Include">
           <e p="Magic_Box_controller.cs" t="Include" />
         </e>
+        <e p="Mega Fantasy Props Pack" t="Include">
+          <e p="README.txt" t="Include" />
+        </e>
+        <e p="Park" t="Include">
+          <e p="Park_controller.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
+          <e p="Clicker.cs" t="Include" />
+          <e p="ClickObject.cs" t="Include" />
           <e p="MenuManager.cs" t="Include" />
           <e p="RadialReticle.cs" t="Include" />
           <e p="VRGaze.cs" t="Include" />
