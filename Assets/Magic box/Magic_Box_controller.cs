@@ -13,6 +13,9 @@ public class Magic_Box_controller : MonoBehaviour
     int Tackt=0;
     System.Random rand;
 
+    [SerializeField] List<Transform> transforms;
+
+    [HideInInspector]
     public int [] znach = new int [4];
 
     private void Start()
@@ -26,25 +29,54 @@ public class Magic_Box_controller : MonoBehaviour
         if (Go)
         {
             k = i;
-            i = Randomizer();
+            i = Randomizer(0,9);
             if (k != i)
             {
                 Go = false;
                 Destroy(ThisObject);
-                Instantiate(game_Object[i]).transform.SetParent(box.transform);
-                ThisObject = GameObject.Find(game_Object[i].name + "(Clone)");
+                ThisObject = Instantiate(game_Object[i], box.transform.position, box.transform.rotation, box.transform);
+                ThisObject.transform.SetParent(box.transform);
+                placeObj();
+                //ThisObject = GameObject.Find(game_Object[i].name + "(Clone)");
             }
         }
     }
 
-    int Randomizer()
+
+    void placeObj()
+    {
+        int j = Randomizer(0, 3);
+        GameObject game = Instantiate(ThisObject, transforms[j].position, transforms[j].rotation);
+        game.transform.localScale *= 3;
+
+        List<GameObject> gameObjects = new List<GameObject>();
+        foreach (GameObject gameObject in game_Object)
+        {
+            if (game != gameObject)
+            {
+                gameObjects.Add(gameObject);
+            }
+        }
+
+        for (int m = 0; m < 4; m++)
+        {
+            if (m != j)
+            {
+                int l = Randomizer(0, gameObjects.Count - 1);
+                Instantiate(gameObjects[l], transforms[j].position, transforms[j].rotation);
+                gameObjects.RemoveAt(l);
+            }
+        }
+    }
+
+    int Randomizer(int start, int finish)
     {
         int rez=0;
         bool log = true;
         while (log)
         {
             log = false;
-            rez = rand.Next(0, 9);
+            rez = rand.Next(start, finish);
             for (int i = 0; i < 4; i++)
             {
                 if (rez == znach[i])

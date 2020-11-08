@@ -1089,6 +1089,7 @@ GameObject:
   - component: {fileID: 7954419099599430022}
   - component: {fileID: 65801130011020540}
   - component: {fileID: 6843746074832189809}
+  - component: {fileID: -4077425262043892141}
   m_Layer: 0
   m_Name: Porsche_911_GT2 Variant 1
   m_TagString: Untagged
@@ -1244,6 +1245,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &-4077425262043892141
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357006650764825493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1 &6472984939009544782
 GameObject:
   m_ObjectHideFlags: 0

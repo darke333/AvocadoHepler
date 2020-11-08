@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722610212111483829}
   - component: {fileID: 196241006332752772}
+  - component: {fileID: 1343401361467622079}
   m_Layer: 0
   m_Name: LD_HorseRtime02
   m_TagString: Untagged
@@ -128,6 +129,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &1343401361467622079
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93707546288314639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1 &8989503045002502614
 GameObject:
   m_ObjectHideFlags: 0
