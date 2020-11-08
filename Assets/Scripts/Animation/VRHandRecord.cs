@@ -107,6 +107,10 @@ public class VRHandRecord : MonoBehaviour
 
     GameObject HandObj;
 
+    [SerializeField] Transform GrabbingObject;
+
+    [SerializeField] GameObject Animator;
+
     [SerializeField] SteamVR_Input_Sources Hand;
 
 
@@ -124,11 +128,24 @@ public class VRHandRecord : MonoBehaviour
             }
         }
 
-        // Create recorder and record the script GameObject.
-        m_Recorder = new GameObjectRecorder(HandObj);
+        if (HandObj)
+        {
+            // Create recorder and record the script GameObject.
+            m_Recorder = new GameObjectRecorder(Animator);
 
-        // Bind all the Transforms on the GameObject and all its children.
-        m_Recorder.BindComponentsOfType<Transform>(HandObj, true);
+            // Bind all the Transforms on the GameObject and all its children.
+            m_Recorder.BindComponentsOfType<Transform>(Animator, true);
+        }
+        else
+        {
+            // Create recorder and record the script GameObject.
+            m_Recorder = new GameObjectRecorder(gameObject);
+
+            // Bind all the Transforms on the GameObject and all its children.
+            m_Recorder.BindComponentsOfType<Transform>(gameObject, true);
+        }
+
+
     }
 
     void LateUpdate()
@@ -138,17 +155,22 @@ public class VRHandRecord : MonoBehaviour
 
         if (Recording)
         {
-            if (HandObj && HandObj.transform.parent != transform)
+            if (HandObj && HandObj.transform.parent != Animator.transform)
             {
                 transform.parent = HandObj.transform.parent;
                 transform.position = HandObj.transform.position;
-                transform.rotation = HandObj.transform.rotation;
+                transform.rotation = HandObj.transform.parent.rotation;
                 transform.localScale = HandObj.transform.localScale;
 
-                HandObj.transform.parent = transform;
+                HandObj.transform.parent = Animator.transform;
+                m_Recorder.BindComponentsOfType<Transform>(Animator, true);
+
+                if (GrabbingObject)
+                {
+                    GrabbingObject.parent = Animator.transform;
+                }
             }
 
-            m_Recorder.BindComponentsOfType<Transform>(HandObj, true);
 
             m_Recorder.TakeSnapshot(Time.deltaTime);
 
