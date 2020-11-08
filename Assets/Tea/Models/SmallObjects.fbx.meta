@@ -3,7 +3,57 @@ guid: ec2123dfce683f949b70de16f466ded6
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: c460fe99f39d26845bf64e12432ef2fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jam
+    second: {fileID: 2100000, guid: 8c7de4564c4c1b943833941cc4e09bba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lemon
+    second: {fileID: 2100000, guid: aeb22d5fe0491284d94ae00177ee0df5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 50f2ba3d042a5c046b8a96a97db42716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Milk
+    second: {fileID: 2100000, guid: 8cc99efe748278d4a8ca2477e3d1e3b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PLastic
+    second: {fileID: 2100000, guid: f94d878bbedd963448f07166196e1cda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tea
+    second: {fileID: 2100000, guid: 16c701284f4e8a247a5aae3aaa32be55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0413\u043E\u0440\u043E\u0445"
+    second: {fileID: 2100000, guid: a88715fc07956f5499b5a6ff52df364c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0430\u043A\u0430\u0440\u043E\u043D\u044B"
+    second: {fileID: 2100000, guid: 97873165a8228c747a93abb632e1188b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u041C\u0443\u043A\u0430(\u043A\u043E\u0440\u043E\u0431\u043A\u0430)"
+    second: {fileID: 2100000, guid: 0d3609720f8c69b43be303d83b00fb16, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
