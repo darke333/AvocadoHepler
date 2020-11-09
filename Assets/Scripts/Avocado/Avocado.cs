@@ -15,6 +15,7 @@ public class Avocado : MonoBehaviour
     [SerializeField] Animator RightHand;
     [SerializeField] Dialogue_script dialogue;
     [SerializeField] Magic_Box_controller chestGame;
+    [SerializeField] GameObject Camera;
 
 
 
@@ -24,13 +25,13 @@ public class Avocado : MonoBehaviour
         dialogue.DialogueText = "Nice to meet you. Now let's play";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
-        Invoke("ChestStartGame", 10);
+        Invoke("ChestStartGame", 7);
     }
 
     public void ChestStartGame()
     {
         RightHand.Play("Chest");
-        dialogue.DialogueText = "I have a magic bag, try to guess what’s in it?";
+        dialogue.DialogueText = "I have a magic bag, can you guess what’s in it?";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         chestGame.Go = true;
@@ -57,24 +58,64 @@ public class Avocado : MonoBehaviour
             LeftHand.Play("FingerNO");
 
         }
-        Invoke("Transition",5);
+        Invoke("Transition",7);
     }
 
     public void Transition()
     {
         RightHand.Play("SweatOff");        
-        dialogue.DialogueText = "I guess we are done!Fuh, I’m tired, let's go have some tea!";
+        dialogue.DialogueText = "I guess we are done! Fuh, I’m tired, let's go have some tea!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
+        Invoke("WhereBike", 7);
+    }
+
+    public void WhereBike()
+    {
+        AvocadoAnim.Play("WhereBike");
+        dialogue.DialogueText = "Where did I leave my bike? Can you help me find him?";
+        dialogue.SadVoise = true;
+        dialogue.Go = true;
+    }
+
+    public void BushRemoved(GameObject sender)
+    {
+        if (sender.name == "Bush_Bike")
+        {
+            RightHand.StopPlayback();
+
+            RightHand.Play("YesBike");
+            dialogue.DialogueText = "There it is! Let's go get it!";
+            dialogue.HappyVoise = true;
+            dialogue.Go = true;
+        }
+        else
+        {
+            RightHand.Play("NoBike");
+        }
+        sender.GetComponent<Animator>().enabled = true;
+
+        Invoke("WelcomHome", 7);
 
     }
 
+    public void WelcomHome()
+    {
+        GetComponent<Animator>().enabled = true;
+        Camera.GetComponent<Animator>().enabled = true;
 
+    }
+
+    public void PlayJumpAnim()
+    {
+        AvocadoAnim.Play("Jump");
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FirstHello", 2);
+        Invoke("WelcomHome", 0);
         nextPoint = transform.position;
     }
 

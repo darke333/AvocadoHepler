@@ -20,9 +20,12 @@ public class Clicker : MonoBehaviour
 
     public UnityEvent unityEvent;
 
+    bool AlreadyClicked;
+
     // Start is called before the first frame update
     void Start()
     {
+        AlreadyClicked = false;
         camera = GetComponent<Camera>();
     }
 
@@ -42,7 +45,15 @@ public class Clicker : MonoBehaviour
             if (imgGaze.fillAmount == 1)
             {
                 //Write actions here
-                _hit.collider.gameObject.GetComponent<ClickObject>().unityEvent.Invoke();
+                if (!AlreadyClicked)
+                {
+                    _hit.collider.gameObject.GetComponent<ClickObject>().unityEvent.Invoke();
+                    AlreadyClicked = true;
+                }
+            }
+            else
+            {
+                AlreadyClicked = false;
             }
 
             //fixes canvas cursor position

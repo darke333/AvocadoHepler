@@ -9,10 +9,12 @@ public class Magic_Box_controller : MonoBehaviour
     public GameObject[] game_Object = new GameObject[10];
     public GameObject box;
     public GameObject ThisObject;
+    int thisInt;
     int k,i;
     int Tackt=0;
     System.Random rand;
-
+    [SerializeField] Avocado avocado;
+    [SerializeField] Transform InBoxPos;
     [SerializeField] List<Transform> transforms;
 
     [HideInInspector]
@@ -33,21 +35,41 @@ public class Magic_Box_controller : MonoBehaviour
             if (k != i)
             {
                 Go = false;
-                Destroy(ThisObject);
-                ThisObject = Instantiate(game_Object[i], box.transform.position, box.transform.rotation, box.transform);
-                ThisObject.transform.SetParent(box.transform);
+                if (ThisObject)
+                {
+                    Destroy(ThisObject);
+                }
+                foreach(Transform transform in transforms)
+                {
+                    transform.gameObject.SetActive(true);
+                }
+                ThisObject = Instantiate(game_Object[i], InBoxPos.transform.position, InBoxPos.transform.rotation, InBoxPos.transform);
+                ThisObject.GetComponent<AudioSource>().Play();
                 placeObj();
-                //ThisObject = GameObject.Find(game_Object[i].name + "(Clone)");
             }
         }
     }
 
+    public void CheckAnswer(int number)
+    {
+        if (number == thisInt)
+        {
+            avocado.ChestGameEnd(true);
+            
+        }
+        else
+        {
+            avocado.ChestGameEnd(false);
+
+        }
+        ThisObject.GetComponent<Animator>().enabled = true;
+    }
 
     void placeObj()
     {
-        int j = Randomizer(0, 3);
-        GameObject game = Instantiate(ThisObject, transforms[j].position, transforms[j].rotation);
-        game.transform.localScale *= 3;
+        thisInt = Randomizer(0, 3);
+        GameObject game = Instantiate(ThisObject, transforms[thisInt].position, transforms[thisInt].rotation);
+        game.transform.localScale *= 5;
 
         List<GameObject> gameObjects = new List<GameObject>();
         foreach (GameObject gameObject in game_Object)
@@ -60,10 +82,10 @@ public class Magic_Box_controller : MonoBehaviour
 
         for (int m = 0; m < 4; m++)
         {
-            if (m != j)
+            if (m != thisInt)
             {
                 int l = Randomizer(0, gameObjects.Count - 1);
-                Instantiate(gameObjects[l], transforms[j].position, transforms[j].rotation);
+                Instantiate(gameObjects[l], transforms[m].position, transforms[m].rotation).transform.localScale *= 5;
                 gameObjects.RemoveAt(l);
             }
         }
