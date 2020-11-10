@@ -16,6 +16,7 @@ public class Avocado : MonoBehaviour
     [SerializeField] Dialogue_script dialogue;
     [SerializeField] Magic_Box_controller chestGame;
     [SerializeField] GameObject Camera;
+    [SerializeField] List<GameObject> Bushes;
 
 
 
@@ -76,6 +77,10 @@ public class Avocado : MonoBehaviour
         dialogue.DialogueText = "Where did I leave my bike? Can you help me find him?";
         dialogue.SadVoise = true;
         dialogue.Go = true;
+        foreach(GameObject bush in Bushes)
+        {
+            bush.GetComponent<Collider>().enabled = true;
+        }
     }
 
     public void BushRemoved(GameObject sender)
@@ -88,6 +93,8 @@ public class Avocado : MonoBehaviour
             dialogue.DialogueText = "There it is! Let's go get it!";
             dialogue.HappyVoise = true;
             dialogue.Go = true;
+            Invoke("WelcomHome", 7);
+
         }
         else
         {
@@ -95,7 +102,6 @@ public class Avocado : MonoBehaviour
         }
         sender.GetComponent<Animator>().enabled = true;
 
-        Invoke("WelcomHome", 7);
 
     }
 
@@ -112,10 +118,18 @@ public class Avocado : MonoBehaviour
 
     }
 
+    public void AfterEnter()
+    {
+        AvocadoAnim.Play("Happy Jump");
+        dialogue.DialogueText = "Here we are at my house";
+        dialogue.HappyVoise = true;
+        dialogue.Go = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("WelcomHome", 0);
+        Invoke("FirstHello", 2);
         nextPoint = transform.position;
     }
 
@@ -169,11 +183,11 @@ public class Avocado : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+       // if (Input.GetKeyDown(KeyCode.Space))
+       // {
             //AssignPath(bezier);
 
-        }
-        MoveAlongPath();
+        //}
+        //MoveAlongPath();
     }
 }

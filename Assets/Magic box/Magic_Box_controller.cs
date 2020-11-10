@@ -63,12 +63,16 @@ public class Magic_Box_controller : MonoBehaviour
 
         }
         ThisObject.GetComponent<Animator>().enabled = true;
+        foreach(Transform transform in transforms)
+        {
+            transform.gameObject.SetActive(false);
+        }
     }
 
     void placeObj()
     {
         thisInt = Randomizer(0, 3);
-        GameObject game = Instantiate(ThisObject, transforms[thisInt].position, transforms[thisInt].rotation);
+        GameObject game = Instantiate(ThisObject, transforms[thisInt].position, transforms[thisInt].rotation, transforms[thisInt]);
         game.transform.localScale *= 5;
 
         List<GameObject> gameObjects = new List<GameObject>();
@@ -85,7 +89,7 @@ public class Magic_Box_controller : MonoBehaviour
             if (m != thisInt)
             {
                 int l = Randomizer(0, gameObjects.Count - 1);
-                Instantiate(gameObjects[l], transforms[m].position, transforms[m].rotation).transform.localScale *= 5;
+                Instantiate(gameObjects[l], transforms[m].position, transforms[m].rotation, transforms[m]).transform.localScale *= 5;
                 gameObjects.RemoveAt(l);
             }
         }
