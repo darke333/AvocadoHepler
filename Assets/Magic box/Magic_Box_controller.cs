@@ -76,7 +76,7 @@ public class Magic_Box_controller : MonoBehaviour
         game.transform.localScale *= 5;
 
         List<GameObject> gameObjects = new List<GameObject>();
-        foreach (GameObject gameObject in game_Object)
+        foreach (GameObject ThisObject in game_Object)
         {
             if (game != gameObject)
             {
