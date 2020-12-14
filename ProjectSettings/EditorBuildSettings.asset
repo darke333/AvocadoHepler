@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 97691ce640a934f43a4b53ff811b6c0d
   - enabled: 1
-    path: Assets/Scenes/Environment.unity
+    path: Assets/Scenes/Adventurous Valley.unity
     guid: 5a0a256d25c4aba43aa79ad41d2f7760
   m_configObjects: {}

@@ -13,7 +13,7 @@ public class Clicker : MonoBehaviour
     private float gvrTimer;
 
     public int distanceOfRay = 10;
-    private RaycastHit _hit;
+    public RaycastHit _hit;
     private Camera camera;
 
     public GameObject canvas;
@@ -48,7 +48,7 @@ public class Clicker : MonoBehaviour
                 if (!AlreadyClicked)
                 {
                     _hit.collider.gameObject.GetComponent<ClickObject>().unityEvent.Invoke();
-                    AlreadyClicked = true;
+                    AlreadyClicked = true;                    
                 }
             }
             else

@@ -6,16 +6,19 @@ using UnityEngine.Events;
 public class ClickObject : MonoBehaviour
 {
     public UnityEvent unityEvent;
-    
-    // Start is called before the first frame update
-    void Start()
+    Clicker camera;
+    private void Start()
     {
-        
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Clicker>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        if (transform == camera._hit.transform)
+        {
+            camera.GVROff();
+            
+        }
     }
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Avocado : MonoBehaviour
 {
+    
     [SerializeField] Transform Player;
     public BezierCurveScript bezier;
     public List<Vector3> path;
@@ -124,12 +125,44 @@ public class Avocado : MonoBehaviour
         dialogue.DialogueText = "Here we are at my house";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
+        Invoke("StartPickGame", 5);
+    }
+
+
+    public void StartPickGame()
+    {
+        dialogue.DialogueText = "Let's make some tea! Try to peak correct ingridients!";
+        dialogue.HappyVoise = true;
+        dialogue.Go = true;
+    }
+
+    public void CorrectPick()
+    {
+        dialogue.DialogueText = "Great!";
+        dialogue.YesVoise = true;
+        dialogue.Go = true;
+    }
+
+    public void WrongPick()
+    {
+        dialogue.DialogueText = "Hmm, I'm not sure";
+        dialogue.NoVoise = true;
+        dialogue.Go = true;
+        LeftHand.Play("FingerNO");
+    }
+
+    public void EndPickGame()
+    {
+        dialogue.DialogueText = "Thanks for the help! See you later!!!";
+        dialogue.HappyVoise = true;
+        dialogue.Go = true;
+        RightHand.Play("Bye");        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FirstHello", 2);
+        Invoke("WelcomHome", 2);
         nextPoint = transform.position;
     }
 

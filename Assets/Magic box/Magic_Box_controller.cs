@@ -6,7 +6,7 @@ using UnityEngine;
 public class Magic_Box_controller : MonoBehaviour
 {
     public bool Go;
-    public GameObject[] game_Object = new GameObject[10];
+    public GameObject[] Base_objects = new GameObject[10];
     public GameObject box;
     public GameObject ThisObject;
     int thisInt;
@@ -43,8 +43,8 @@ public class Magic_Box_controller : MonoBehaviour
                 {
                     transform.gameObject.SetActive(true);
                 }
-                ThisObject = Instantiate(game_Object[i], InBoxPos.transform.position, InBoxPos.transform.rotation, InBoxPos.transform);
-                ThisObject.GetComponent<AudioSource>().Play();
+                //ThisObject = Instantiate(game_Object[i], InBoxPos.transform.position, InBoxPos.transform.rotation, InBoxPos.transform);
+                //ThisObject.GetComponent<AudioSource>().Play();
                 placeObj();
             }
         }
@@ -54,13 +54,11 @@ public class Magic_Box_controller : MonoBehaviour
     {
         if (number == thisInt)
         {
-            avocado.ChestGameEnd(true);
-            
+            avocado.ChestGameEnd(true);            
         }
         else
         {
             avocado.ChestGameEnd(false);
-
         }
         ThisObject.GetComponent<Animator>().enabled = true;
         foreach(Transform transform in transforms)
@@ -72,13 +70,13 @@ public class Magic_Box_controller : MonoBehaviour
     void placeObj()
     {
         thisInt = Randomizer(0, 3);
-        GameObject game = Instantiate(ThisObject, transforms[thisInt].position, transforms[thisInt].rotation, transforms[thisInt]);
-        game.transform.localScale *= 5;
-
+        ThisObject = Instantiate(Base_objects[thisInt], transforms[thisInt].position, transforms[thisInt].rotation, transforms[thisInt]);
+        ThisObject.transform.localScale *= 5;
+        ThisObject.GetComponent<AudioSource>().Play();
         List<GameObject> gameObjects = new List<GameObject>();
-        foreach (GameObject ThisObject in game_Object)
+        foreach (GameObject gameObject in Base_objects)
         {
-            if (game != gameObject)
+            if (ThisObject != gameObject)
             {
                 gameObjects.Add(gameObject);
             }
