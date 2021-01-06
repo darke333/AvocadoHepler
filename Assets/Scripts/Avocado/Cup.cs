@@ -11,12 +11,14 @@ public class Cup : MonoBehaviour
     Vector3 end;
     [HideInInspector] public bool Moving;
     public bool Correct;
+    PickOfThree controller;
 
     Vector3 start;
     float time;
 
     void Start()
     {
+        controller = transform.parent.GetComponent<PickOfThree>();
         animator = GetComponent<Animator>();
         start = transform.position;
         end = start;
@@ -36,7 +38,7 @@ public class Cup : MonoBehaviour
     {
         if (Moving)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * controller.speed;
             Vector3 pos = Vector3.Lerp(start, end, time);
             pos.z += curve.Evaluate(time) * Inverse;
             transform.localPosition = pos;

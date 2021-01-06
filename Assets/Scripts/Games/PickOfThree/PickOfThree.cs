@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickOfThree : MonoBehaviour
+public class PickOfThree : Game
 {
     public Cup Left;
     public Cup Right;
@@ -14,6 +14,33 @@ public class PickOfThree : MonoBehaviour
     public float speed = 1;
 
     float timer;
+
+    Difficulty _diff;
+    public Difficulty diff
+    {
+        get
+        {
+            return _diff;
+        }
+        set
+        {
+            _diff = value;
+            if (value == Difficulty.Easy)
+            {
+                Count = 5;
+            }
+
+            if (value == Difficulty.Normal)
+            {
+                Count = 10;
+            }
+
+            if (value == Difficulty.Hard)
+            {
+                Count = 15;
+            }
+        }
+    }
 
     [HideInInspector] public enum Flip
     {

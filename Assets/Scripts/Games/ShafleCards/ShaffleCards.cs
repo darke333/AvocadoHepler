@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ShaffleCards : MonoBehaviour
+public class ShaffleCards : Game
 {
+    private static System.Random rng = new System.Random();
+
     public float Yspace;
     public float Xspace;
     //public int Count;
@@ -15,14 +18,6 @@ public class ShaffleCards : MonoBehaviour
     int CardsLeft;
 
     List<Transform> CardsToRotate = new List<Transform>();
-
-    [HideInInspector]
-    public enum Difficulty
-    {
-        Easy,
-        Normal,
-        Hard
-    }
 
     Difficulty _diff;
     public Difficulty diff
@@ -95,7 +90,6 @@ public class ShaffleCards : MonoBehaviour
         return GameCards;
     }
 
-    private static System.Random rng = new System.Random();
 
 
     void Shuffle(List<GameObject> list)
@@ -113,6 +107,7 @@ public class ShaffleCards : MonoBehaviour
 
     public void CardPicked(Transform card)
     {
+        
         RotateCard(card);
 
 
@@ -123,9 +118,11 @@ public class ShaffleCards : MonoBehaviour
             if (card.name == LastPicked.name)
             {
                 CardsLeft -= 2;
+                RightPicked.Invoke();
             }
             else
             {
+                WrongPicked.Invoke();
                 CardsToRotate.Add(card);
                 CardsToRotate.Add(LastPicked);
                 RotateCard();
@@ -134,10 +131,11 @@ public class ShaffleCards : MonoBehaviour
                 //CardsToRotate = new List<Transform>();
             }
             LastPicked = null;
-
-
         }
-        
+        if (CardsLeft == 0)
+        {
+            EndGameEvent.Invoke();
+        }
     }
 
     // Start is called before the first frame update
