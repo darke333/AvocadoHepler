@@ -93,6 +93,7 @@ public class PickRightGame : MonoBehaviour
     {
         if (Child.GetComponent<PickObj>())
         {
+            Child.GetComponent<Collider>().enabled = true;
             PickObj pickObj = Child.GetComponent<PickObj>();            
             
             if (pickObj.Correct)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Avocado : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Avocado : MonoBehaviour
     [SerializeField] Magic_Box_controller chestGame;
     [SerializeField] GameObject Camera;
     [SerializeField] List<GameObject> Bushes;
+    public PickRightGame PickRightGame;
 
 
 
@@ -132,6 +134,7 @@ public class Avocado : MonoBehaviour
     public void StartPickGame()
     {
         dialogue.DialogueText = "Let's make some tea! Try to peak correct ingridients!";
+        PickRightGame.enabled = true;
         dialogue.HappyVoise = true;
         dialogue.Go = true;
     }
@@ -156,7 +159,21 @@ public class Avocado : MonoBehaviour
         dialogue.DialogueText = "Thanks for the help! See you later!!!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
-        RightHand.Play("Bye");        
+        RightHand.Play("Bye");
+        LoadNextScene();
+    }
+
+    public void LoadNextScene()
+    {
+        StartCoroutine(LoadLevel(0));
+    }
+
+    IEnumerator LoadLevel(int level)
+    {
+        
+
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(level);
     }
 
     // Start is called before the first frame update
