@@ -11,6 +11,8 @@ public class PickOfThree : MonoBehaviour
 
     public int Count;
 
+    public float speed = 1;
+
     float timer;
 
     [HideInInspector] public enum Flip

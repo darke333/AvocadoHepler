@@ -162,7 +162,7 @@ public class Avocado : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("WelcomHome", 2);
+        Invoke("FirstHello", 2);
         nextPoint = transform.position;
     }
 
