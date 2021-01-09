@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cup : MonoBehaviour
 {
 
-    Animator animator;
+    public Animator animator;
     public AnimationCurve curve;
     int Inverse;
     Vector3 end;
@@ -20,7 +20,7 @@ public class Cup : MonoBehaviour
     {
         controller = transform.parent.GetComponent<PickOfThree>();
         animator = GetComponent<Animator>();
-        start = transform.position;
+        start = transform.localPosition;
         end = start;
         Moving = false;
     }
@@ -29,7 +29,7 @@ public class Cup : MonoBehaviour
     {
         Inverse = inverse;
         end = endPos;
-        start = transform.position;
+        start = transform.localPosition;
         time = 0;
         Moving = true;
     }
@@ -38,7 +38,7 @@ public class Cup : MonoBehaviour
     {
         if (Moving)
         {
-            time += Time.deltaTime * controller.speed;
+            time += Time.deltaTime * controller.Speed;
             Vector3 pos = Vector3.Lerp(start, end, time);
             pos.z += curve.Evaluate(time) * Inverse;
             transform.localPosition = pos;
@@ -48,7 +48,9 @@ public class Cup : MonoBehaviour
 
     public void Show()
     {
+        animator.enabled = true;
         animator.SetBool("Show", true);
+        animator.Play("Show");
     }
 
     void Update()

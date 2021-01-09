@@ -71,7 +71,7 @@ public class Dialogue_script : MonoBehaviour
         for (int i=0; i< DialogueText.Length; i++)
         {
             GameObject.Find("Text").GetComponent<TextMeshPro>().text += DialogueText[i];
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

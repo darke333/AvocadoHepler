@@ -21,7 +21,7 @@ public class RememberObj : ChooseGame
     // Start is called before the first frame update
     void Start()
     {
-        diff = Difficulty.Easy;
+        //diff = Difficulty.Easy;
         //diff = Difficulty.Normal;
         //diff = Difficulty.Hard;
 
@@ -30,7 +30,7 @@ public class RememberObj : ChooseGame
 
 
     Difficulty _diff;
-    public Difficulty diff
+    public Difficulty Diff
     {
         get
         {
@@ -77,9 +77,6 @@ public class RememberObj : ChooseGame
 
         yield return new WaitForSeconds(5);
 
-        //CorrectGems = new List<GameObject>();
-        //CorrectGems.AddRange(InGameObjs);
-
         foreach (GameObject gem in InGameObjs)
         {
             Destroy(gem);
@@ -118,12 +115,7 @@ public class RememberObj : ChooseGame
             {
                 Correct = true;
                 index = CorrectGems.IndexOf(gem);
-
             }
-
-
-
-
         }
         if (Correct)
         {
@@ -174,9 +166,4 @@ public class RememberObj : ChooseGame
         return GameGems;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

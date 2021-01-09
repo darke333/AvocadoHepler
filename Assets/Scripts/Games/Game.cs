@@ -24,7 +24,7 @@ public class Game : MonoBehaviour
 
 public class ChooseGame : Game
 {
-    protected List<GameObject> InGameObjs = new List<GameObject>();
+    public List<GameObject> InGameObjs = new List<GameObject>();
 
     public float Yspace;
     public float Xspace;

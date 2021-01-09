@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Adventurous Valley.unity
     guid: 5a0a256d25c4aba43aa79ad41d2f7760
+  - enabled: 1
+    path: Assets/Scenes/MemoWillage.unity
+    guid: bdc86716a24becf4b875927f13e383ad
   m_configObjects: {}

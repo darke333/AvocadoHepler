@@ -10,7 +10,7 @@ public class ShaffleCards : ChooseGame
     Transform LastPicked;
 
     Difficulty _diff;
-    public Difficulty diff
+    public Difficulty Diff
     {
         get
         {
@@ -21,19 +21,19 @@ public class ShaffleCards : ChooseGame
             _diff = value;
             if (value == Difficulty.Easy)
             {
-                SpreadCards(2, 2);
+                StartCoroutine(StartFunc(2, 2));
                 left = 4;
             }
 
             if (value == Difficulty.Normal)
             {
-                SpreadCards(4, 4);
+                StartCoroutine(StartFunc(4, 4));
                 left = 16;
             }
 
             if (value == Difficulty.Hard)
             {
-                SpreadCards(6, 6);
+                StartCoroutine(StartFunc(6, 6));
                 left = 36;
             }
         }
@@ -44,17 +44,24 @@ public class ShaffleCards : ChooseGame
         List<GameObject> Temp = new List<GameObject>();
 
         Temp = PickCards(Ynum * Xnum / 2);
-
+        float YStart = -(Ynum - 1) * Yspace  ;
+        float XStart = -(Xnum-1) * Xspace  ;
+        //float YStart = 0;
+        //float XStart = 0;
         int index = 0;
 
         for (int i = 0; i < Ynum; i++)
         {
-            float YShift = i * Yspace;
-
+            float YShift = i * Yspace + YStart;
+            YShift += i * Yspace;
             for (int j = 0; j < Xnum; j++)
             {
-                float XShift = j * Xspace;
-                InGameObjs.Add( Instantiate(Temp[index], new Vector3(XShift, YShift, 0), Quaternion.Euler(0,180,0), transform) );
+                float XShift = j * Xspace + XStart;
+                XShift += j * Xspace;
+                GameObject card = Instantiate(Temp[index], transform);
+                card.transform.localPosition = new Vector3(XShift, YShift, 0);
+                card.transform.Rotate(0, 180, 0);
+                InGameObjs.Add(card);
                 index++;
             }
         }
@@ -98,7 +105,7 @@ public class ShaffleCards : ChooseGame
 
     public void CardPicked(Transform card)
     {
-        
+
         RotateCard(card);
 
 
@@ -110,15 +117,23 @@ public class ShaffleCards : ChooseGame
             {
                 left -= 2;
                 RightPicked.Invoke();
+                InGameObjs.Remove(card.gameObject);
+                InGameObjs.Remove(LastPicked.gameObject);
             }
             else
             {
                 WrongPicked.Invoke();
                 CardsToRotate.Add(card);
-                CardsToRotate.Add(LastPicked);
-                RotateCard();
-                card.GetComponent<Collider>().enabled = true;
-                LastPicked.GetComponent<Collider>().enabled = true;
+                CardsToRotate.Add(LastPicked);                
+
+                foreach (GameObject Card in InGameObjs)
+                {
+                    Card.GetComponent<Collider>().enabled = false;
+                }
+
+                Invoke("RotateCard", 3);
+
+                
             }
             LastPicked = null;
         }
@@ -131,10 +146,10 @@ public class ShaffleCards : ChooseGame
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartFunc());
+        // = Difficulty.Normal;
     }
 
-    IEnumerator StartFunc()
+    IEnumerator StartFunc(int Ynum, int Xnum)
     {
 
         foreach (Transform card in ObjsParent)
@@ -142,29 +157,35 @@ public class ShaffleCards : ChooseGame
             GameObjs.Add(card.gameObject);
         }
 
-        diff = Difficulty.Easy;
-        //CardsToRotate = InGameObjs;
+        SpreadCards(Ynum, Xnum);
 
         foreach (GameObject card in InGameObjs)
         {
             CardsToRotate.Add(card.transform);
         }
-        
+        float timer = 0;
+        switch (Diff)
+        {
+            case Difficulty.Easy:
+                timer = 5;
+                break;
+            case Difficulty.Normal:
+                timer = 7.5f;
+                break;
+            case Difficulty.Hard:
+                timer = 10;
+                break;
+        }
+        yield return new WaitForSeconds(timer);
 
-        yield return new WaitForSeconds(5);
 
-        
-        foreach (GameObject card in InGameObjs)
-            card.GetComponent<Collider>().enabled = true;
+        //foreach (GameObject card in InGameObjs)
+        //    card.GetComponent<Collider>().enabled = true;
         RotateCard();
     }
 
     void RotateCard()
     {
-       // foreach (GameObject card in InGameObjs)
-       //     card.GetComponent<Collider>().enabled = false;
-        //yield return new WaitForSeconds(5);
-
         foreach (Transform card in CardsToRotate)
         {
             card.rotation *= Quaternion.AngleAxis(180, card.transform.up);
@@ -173,19 +194,16 @@ public class ShaffleCards : ChooseGame
             card.GetComponent<Collider>().enabled = true;
         CardsToRotate = new List<Transform>();
 
-        
+        foreach (GameObject card in InGameObjs)
+            card.GetComponent<Collider>().enabled = true;
+
     }
 
     void RotateCard(Transform Card)
     {
         Card.GetComponent<Collider>().enabled = false;
 
-        Card.rotation *= Quaternion.AngleAxis(180, Card.up);        
+        Card.rotation *= Quaternion.AngleAxis(180, Card.up);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       // RotateCard();
-    }
 }

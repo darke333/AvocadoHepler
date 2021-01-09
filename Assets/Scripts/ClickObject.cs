@@ -20,5 +20,14 @@ public class ClickObject : MonoBehaviour
             
         }
     }
+    private void OnDisable()
+    {
+        if (transform == camera._hit.transform)
+        {
+            camera.GVROff();
 
+        }
+    }
 }
+
+
