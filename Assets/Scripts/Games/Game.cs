@@ -20,36 +20,21 @@ public class Game : MonoBehaviour
         Hard
     }
 
-    Difficulty _diff;
-    //public Difficulty diff;
-    /*{
-        /get
-        {
-            return _diff;
-        }
-        set
-        {
-            _diff = value;
-            if (value == Difficulty.Easy)
-            {
-                SpreadCards(2, 2);
-                CardsLeft = 4;
-            }
+}
 
-            if (value == Difficulty.Normal)
-            {
-                SpreadCards(4, 4);
-                CardsLeft = 16;
-            }
+public class ChooseGame : Game
+{
+    protected List<GameObject> InGameObjs = new List<GameObject>();
 
-            if (value == Difficulty.Hard)
-            {
-                SpreadCards(6, 6);
-                CardsLeft = 36;
-            }
-        }
-    }*/
-    
+    public float Yspace;
+    public float Xspace;
+
+    public Transform ObjsParent;
+    protected List<GameObject> GameObjs = new List<GameObject>();
+    protected static System.Random rng = new System.Random();
+    protected int left;
+
+   
 }
 
 

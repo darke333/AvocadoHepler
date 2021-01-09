@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RememberObj : Game
+public class RememberObj : ChooseGame
 {
-    [SerializeField] List<GameObject> Gems = new List<GameObject>();
 
-    List<GameObject> InGameGems = new List<GameObject>();
 
-    private static System.Random rng = new System.Random();
-    public Transform GemsParent;
-    int GemsLeft;
+    public List<GameObject> CorrectGems;
 
-    public float Yspace;
-    public float Xspace;
+    Transform Poses;
+
+    public Transform PosesParent;
+
+    [SerializeField]
+    GameObject GoodPoof;
+    [SerializeField]
+    GameObject BadPoof;
 
     // Start is called before the first frame update
     void Start()
     {
+        diff = Difficulty.Easy;
+        //diff = Difficulty.Normal;
+        //diff = Difficulty.Hard;
 
     }
 
@@ -36,54 +41,127 @@ public class RememberObj : Game
             _diff = value;
             if (value == Difficulty.Easy)
             {
-                ShowGems(2, 6);
-                GemsLeft = 2;
+                Poses = PosesParent.transform.Find("Easy");
+                StartCoroutine(ShowGems(2, 5));
+                left = 2;
             }
 
             if (value == Difficulty.Normal)
             {
-                ShowGems(4, 10);
-                GemsLeft = 4;
+                Poses = PosesParent.transform.Find("Medium");
+                StartCoroutine(ShowGems(5, 10));
+                left = 4;
             }
 
             if (value == Difficulty.Hard)
             {
-                ShowGems(6, 15);
-                GemsLeft = 6;
+                Poses = PosesParent.transform.Find("Hard");
+                StartCoroutine(ShowGems(9, 15));
+                left = 6;
             }
         }
     }
 
     IEnumerator ShowGems(int CorrectGemsCount, int TotalGemsCount)
     {
-
-        List<GameObject> TotalGems = PickGems(TotalGemsCount, Gems);
-
-        List<GameObject> CorrectGems = PickGems(CorrectGemsCount, TotalGems);
-
-        int index = 0;
-        for (int i = 0; i < CorrectGemsCount / 2; i++)
+        foreach (Transform gem in ObjsParent)
         {
-            float YShift = i * Yspace;
+            GameObjs.Add(gem.gameObject);
+        }
 
-            for (int j = 0; j < CorrectGemsCount / 2; j++)
+        List<GameObject> TotalGems = PickGems(TotalGemsCount, GameObjs);
+
+        CorrectGems = PickGems(CorrectGemsCount, TotalGems);
+        
+        SpreadGems(CorrectGems, InGameObjs, Poses.transform.GetChild(0));
+
+        yield return new WaitForSeconds(5);
+
+        //CorrectGems = new List<GameObject>();
+        //CorrectGems.AddRange(InGameObjs);
+
+        foreach (GameObject gem in InGameObjs)
+        {
+            Destroy(gem);
+        }
+        InGameObjs = new List<GameObject>();
+
+        SpreadGems(TotalGems, InGameObjs, Poses.transform.GetChild(1));
+
+        foreach (GameObject gem in InGameObjs)
+        {
+            gem.GetComponent<Collider>().enabled = true;
+        }
+        
+    } 
+
+    void SpreadGems(List<GameObject> OutGems, List<GameObject> InGems, Transform poses)        
+    {
+        int index = 0;
+        foreach(Transform pos in poses)
+        {
+            GameObject gem = Instantiate(OutGems[index], pos.position, pos.rotation, ObjsParent);
+            gem.SetActive(true);
+            InGems.Add(gem);
+            index++;
+        }      
+        
+    }
+
+    public void GemPicked(GameObject selectedGem)
+    {
+        bool Correct = false;
+        int index = 0;
+        foreach (GameObject gem in CorrectGems)
+        {
+            if (gem.name + "(Clone)" == selectedGem.name)
             {
-                float XShift = j * Xspace;
-                Instantiate(CorrectGems[index], new Vector3(XShift, YShift, 0), Quaternion.Euler(0, 180, 0), transform);
-                index++;
+                Correct = true;
+                index = CorrectGems.IndexOf(gem);
 
             }
-            
+
+
+
+
         }
-        yield return new WaitForSeconds(0);
-    } 
+        if (Correct)
+        {
+            Instantiate(GoodPoof, selectedGem.transform.position, selectedGem.transform.rotation).SetActive(true);
+            CorrectGems.RemoveAt(index);
+            RightPicked.Invoke();
+        }
+        else
+        {
+            Instantiate(BadPoof, selectedGem.transform.position, selectedGem.transform.rotation).SetActive(true);
+            WrongPicked.Invoke();
+        }
+        Destroy(selectedGem);
+        InGameObjs.Remove(selectedGem);
+        if (CorrectGems.Count == 0)
+            EndGame();
         
 
+    }
+
+    void EndGame()
+    {
+        for(int i = 0; i < InGameObjs.Count; i++)
+        {
+            GameObject gem = InGameObjs[i];
+            Instantiate(GoodPoof, gem.transform.position, gem.transform.rotation).SetActive(true);
+            //InGameObjs.RemoveAt(i);
+            Destroy(gem);
+        }
+        InGameObjs = new List<GameObject>();
+        EndGameEvent.Invoke();
+    }
 
     List<GameObject> PickGems(int Count, List<GameObject> GemsPool)
     {
         List<GameObject> GameGems = new List<GameObject>();
-        List<GameObject> Temp = GemsPool;
+        List<GameObject> Temp = new List<GameObject>();
+        Temp.AddRange(GemsPool);
 
         //Random selection
         for (int i = 0; i < Count; i++)

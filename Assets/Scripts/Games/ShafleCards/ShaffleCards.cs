@@ -3,21 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ShaffleCards : Game
+public class ShaffleCards : ChooseGame
 {
-    private static System.Random rng = new System.Random();
-
-    public float Yspace;
-    public float Xspace;
-    //public int Count;
-    public Transform CardsParent;
-    public List<GameObject> Cards = new List<GameObject>();
-    List<Transform> GameCards = new List<Transform>();
-    Transform LastPicked;
-
-    int CardsLeft;
 
     List<Transform> CardsToRotate = new List<Transform>();
+    Transform LastPicked;
 
     Difficulty _diff;
     public Difficulty diff
@@ -32,19 +22,19 @@ public class ShaffleCards : Game
             if (value == Difficulty.Easy)
             {
                 SpreadCards(2, 2);
-                CardsLeft = 4;
+                left = 4;
             }
 
             if (value == Difficulty.Normal)
             {
                 SpreadCards(4, 4);
-                CardsLeft = 16;
+                left = 16;
             }
 
             if (value == Difficulty.Hard)
             {
                 SpreadCards(6, 6);
-                CardsLeft = 36;
+                left = 36;
             }
         }
     }
@@ -64,7 +54,7 @@ public class ShaffleCards : Game
             for (int j = 0; j < Xnum; j++)
             {
                 float XShift = j * Xspace;
-                GameCards.Add( Instantiate(Temp[index], new Vector3(XShift, YShift, 0), Quaternion.Euler(0,180,0), transform).transform );
+                InGameObjs.Add( Instantiate(Temp[index], new Vector3(XShift, YShift, 0), Quaternion.Euler(0,180,0), transform) );
                 index++;
             }
         }
@@ -73,7 +63,8 @@ public class ShaffleCards : Game
     List<GameObject> PickCards(int Count)
     {
         List<GameObject> GameCards = new List<GameObject>();
-        List<GameObject> Temp = Cards;
+        List<GameObject> Temp = new List<GameObject>();
+        Temp.AddRange(GameObjs);
 
         //Random selection
         for (int i = 0; i < Count; i++)
@@ -117,7 +108,7 @@ public class ShaffleCards : Game
         {
             if (card.name == LastPicked.name)
             {
-                CardsLeft -= 2;
+                left -= 2;
                 RightPicked.Invoke();
             }
             else
@@ -128,11 +119,10 @@ public class ShaffleCards : Game
                 RotateCard();
                 card.GetComponent<Collider>().enabled = true;
                 LastPicked.GetComponent<Collider>().enabled = true;
-                //CardsToRotate = new List<Transform>();
             }
             LastPicked = null;
         }
-        if (CardsLeft == 0)
+        if (left == 0)
         {
             EndGameEvent.Invoke();
         }
@@ -141,47 +131,43 @@ public class ShaffleCards : Game
     // Start is called before the first frame update
     void Start()
     {
-        /*foreach (Transform card in CardsParent)
-        {
-            Cards.Add(card.gameObject);
-        }
-
-        diff = Difficulty.Easy;
-        CardsToRotate = GameCards;
-
-        StartCoroutine(RotateCard());
-        */
         StartCoroutine(StartFunc());
     }
 
     IEnumerator StartFunc()
     {
 
-        foreach (Transform card in CardsParent)
+        foreach (Transform card in ObjsParent)
         {
-            Cards.Add(card.gameObject);
+            GameObjs.Add(card.gameObject);
         }
 
         diff = Difficulty.Easy;
-        CardsToRotate = GameCards;
+        //CardsToRotate = InGameObjs;
 
-        StartCoroutine(RotateCard());
+        foreach (GameObject card in InGameObjs)
+        {
+            CardsToRotate.Add(card.transform);
+        }
+        
 
         yield return new WaitForSeconds(5);
 
-        foreach (Transform card in GameCards)
+        
+        foreach (GameObject card in InGameObjs)
             card.GetComponent<Collider>().enabled = true;
+        RotateCard();
     }
 
-    IEnumerator RotateCard()
+    void RotateCard()
     {
-        foreach (Transform card in GameCards)
-            card.GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(5);
+       // foreach (GameObject card in InGameObjs)
+       //     card.GetComponent<Collider>().enabled = false;
+        //yield return new WaitForSeconds(5);
 
         foreach (Transform card in CardsToRotate)
         {
-            card.rotation *= Quaternion.AngleAxis(180, card.up);
+            card.rotation *= Quaternion.AngleAxis(180, card.transform.up);
         }
         foreach (Transform card in CardsToRotate)
             card.GetComponent<Collider>().enabled = true;
