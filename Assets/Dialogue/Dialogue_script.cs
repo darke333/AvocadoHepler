@@ -74,4 +74,6 @@ public class Dialogue_script : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
     }
+
+
 }

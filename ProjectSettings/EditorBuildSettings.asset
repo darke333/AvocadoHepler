@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MemoWillage.unity
     guid: bdc86716a24becf4b875927f13e383ad
+  - enabled: 1
+    path: Assets/SimpleLowPolyNature/Scenes/DemoNight.unity
+    guid: a098ae9106bc995448a4aba7dfe6a4db
   m_configObjects: {}

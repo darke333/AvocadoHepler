@@ -58,13 +58,13 @@ public class Puzzle : Game
         {
             if (pos.tag == "Place")
             {
-                Instantiate(Pointer, pos.position, pos.rotation).SetActive(true);
+                Instantiate(Pointer, pos.position, pos.rotation, transform).SetActive(true);
             }
             if (pos.tag == "Piece")
             {
                 //pos.GetComponent<Piece>().Placed = true;
 
-                pos.GetComponent<Piece>().CurrPlace = Instantiate(Pointer, pos.position, pos.rotation);
+                pos.GetComponent<Piece>().CurrPlace = Instantiate(Pointer, pos.position, pos.rotation, transform);
                 pieces.Add(pos.GetComponent<Piece>());
             }
 
@@ -148,7 +148,7 @@ public class Puzzle : Game
     // Start is called before the first frame update
     void Start()
     {
-        Diff = Difficulty.Easy;
+       // Diff = Difficulty.Easy;
     }
 
     // Update is called once per frame
