@@ -22,7 +22,7 @@ public class RememberObj : ChooseGame
     void Start()
     {
         //diff = Difficulty.Easy;
-        //diff = Difficulty.Normal;
+        //Diff = Difficulty.Normal;
         //diff = Difficulty.Hard;
 
     }

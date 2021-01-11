@@ -18,10 +18,14 @@ public class VRGaze : MonoBehaviour
     private Camera camera;
 
     public GameObject canvas;
-    public Animator animator;
+
+    //public Animator animator;
+    //public Animator Second;
+    //public Animator Third;
+
     public Animator transitionAnimator;
     public Animator cameraAnimator;
-    public ParticleSystem particleSystem;
+    //public ParticleSystem particleSystem;
 
     private int nextScene;
     public int waitSeconds = 2;
@@ -47,46 +51,84 @@ public class VRGaze : MonoBehaviour
 
         Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
-         if (Physics.Raycast(ray, out _hit, distanceOfRay))
-         {
-             if (imgGaze.fillAmount == 1)
-             {
-                 animator.SetBool("IsSelected", true);
-                 particleSystem.Play();
+        if (Physics.Raycast(ray, out _hit, distanceOfRay))
+        {
+            if (imgGaze.fillAmount == 1)
+            {
+                Animator animator = _hit.transform.GetComponent<Animator>();
+                ParticleSystem particle = _hit.transform.parent.GetChild(1).GetComponent<ParticleSystem>();
+                switch (_hit.transform.tag)
+                {
+                    
+                    case "Level1":
+                        nextScene = 1;
+                        animator.SetBool("IsSelected", true);
+                        particle.Play();
+                        break;
+                    case "Level2":
+                        nextScene = 2;
+                        animator.SetBool("IsSelected", true);
+                        particle.Play();
+                        break;
+                    case "Level3":
+                        nextScene = 3;
+                        animator.SetBool("IsSelected", true);
+                        particle.Play();
+                        break;
+                }
+                /*
+                if (_hit.transform.CompareTag("Level1"))
+                {
+                    nextScene = 1;
+                    animator.SetBool("IsSelected", true);
+                    particleSystem.Play();
+                }
 
-                 if (_hit.transform.CompareTag("Level1"))
-                     nextScene = 1;
-                 else if (_hit.transform.CompareTag("Level2"))
-                     nextScene = 2;
-                 else if (_hit.transform.CompareTag("Level3"))
-                     nextScene = 3;
+                else if (_hit.transform.CompareTag("Level2"))
+                {
+                    nextScene = 2;
+                    animator.SetBool("IsSelected", true);
+                    particleSystem.Play();
 
-                 LoadNextScene();
-             }
-             
-             canvas.transform.localPosition = new Vector3(canvas.transform.localPosition.x, canvas.transform.localPosition.y, (_hit.distance + 0.15f));
-             
-             if (_hit.distance > -100 && _hit.distance < 100)
-             {
-                 float tmp = _hit.distance * 0.00012308f;
-                 canvas.transform.localScale = new Vector3(tmp,tmp,tmp);
-             }
-               
-         }
-         
-         if (!animator.GetBool("IsShaking"))
-             animator.SetBool("IsSelected", false);
-         Debug.Log(_hit.distance);
+                }
+                else if (_hit.transform.CompareTag("Level3"))
+                {
+                    nextScene = 3;
+                    animator.SetBool("IsSelected", true);
+                    particleSystem.Play();
+
+                }*/
+                LoadNextScene();
+            }
+
+            canvas.transform.localPosition = new Vector3(canvas.transform.localPosition.x, canvas.transform.localPosition.y, (_hit.distance + 0.15f));
+            if (_hit.distance > -100 && _hit.distance < 100)
+            {
+                float tmp = _hit.distance * 0.00012308f;
+                canvas.transform.localScale = new Vector3(tmp, tmp, tmp);
+            }
+
+        }
+
+        //if (!animator.GetBool("IsShaking"))
+        //    animator.SetBool("IsSelected", false);
+        Debug.Log(_hit.distance);
+
 
     }
 
-    public void GVROn()
+    void animatorControll()
+    {
+
+    } 
+
+    public void GVROn(Animator animator)
     {
         gvrStatus = true;
         animator.SetBool("IsShaking", true);
     }
     
-    public void GVROff()
+    public void GVROff(Animator animator)
     {
         gvrStatus = false;
         gvrTimer = 0;
