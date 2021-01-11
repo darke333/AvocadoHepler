@@ -36,7 +36,7 @@ public class MemoVillage : MonoBehaviour
     public void FirstHello()
     {
         AvocadoAnim.Play("Jump");
-        dialogue.DialogueText = "Nice to meet you. Choose game you want to play!";
+        dialogue.DialogueText = "Nice to meet you. Choose the game you want to play!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         Invoke("ChestStartGame", 7);
@@ -129,7 +129,7 @@ public class MemoVillage : MonoBehaviour
 
     IEnumerator CupGame(Game.Difficulty difficulty)
     {
-        dialogue.DialogueText = "Remember, where the cup with the ball. Point after it will be moved.";
+        dialogue.DialogueText = "Remember, where the cup with the ball is. Point at it after they are moved.";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
 
@@ -140,7 +140,7 @@ public class MemoVillage : MonoBehaviour
 
     IEnumerator CardGame(Game.Difficulty difficulty)
     {
-        dialogue.DialogueText = "Remember, cards positions. After they will be turned, select identical pairs of cards.";
+        dialogue.DialogueText = "Remember cards positions. After they are turned over, select identical pairs.";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
 
@@ -151,7 +151,7 @@ public class MemoVillage : MonoBehaviour
 
     IEnumerator GemGame(Game.Difficulty difficulty)
     {
-        dialogue.DialogueText = "Remember, gems at the start. Select those gems out of shown later.";
+        dialogue.DialogueText = "Remember gems at the start. Select the right ones after they all are shuffled.";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
 
@@ -163,7 +163,7 @@ public class MemoVillage : MonoBehaviour
     public void GameFinished()
     {
         AvocadoAnim.Play("Jump");
-        dialogue.DialogueText = "Well Done! Lets play again!";
+        dialogue.DialogueText = "Well Done! Let's play again!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         Invoke("FinishEmote",5);
@@ -176,7 +176,7 @@ public class MemoVillage : MonoBehaviour
 
     public void EndPickGame()
     {
-        dialogue.DialogueText = "Thanks for the help! See you later!!!";
+        dialogue.DialogueText = "Thanks for help! See you later!!!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         RightHand.Play("Bye");

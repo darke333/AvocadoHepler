@@ -68,7 +68,7 @@ public class Avocado : MonoBehaviour
     public void Transition()
     {
         RightHand.Play("SweatOff");        
-        dialogue.DialogueText = "I guess we are done! Fuh, I’m tired, let's go have some tea!";
+        dialogue.DialogueText = "I guess we are done! Phew, I’m tired, let's go have some tea!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         Invoke("WhereBike", 7);
@@ -77,7 +77,7 @@ public class Avocado : MonoBehaviour
     public void WhereBike()
     {
         AvocadoAnim.Play("WhereBike");
-        dialogue.DialogueText = "Where did I leave my bike? Can you help me find him?";
+        dialogue.DialogueText = "Where did I leave my bike? Can you help me find it?";
         dialogue.SadVoise = true;
         dialogue.Go = true;
         foreach(GameObject bush in Bushes)
@@ -93,7 +93,7 @@ public class Avocado : MonoBehaviour
             RightHand.StopPlayback();
 
             RightHand.Play("YesBike");
-            dialogue.DialogueText = "There it is! Let's go get it!";
+            dialogue.DialogueText = "Here it is! Let's go get it!";
             dialogue.HappyVoise = true;
             dialogue.Go = true;
             Invoke("WelcomHome", 7);
@@ -124,7 +124,7 @@ public class Avocado : MonoBehaviour
     public void AfterEnter()
     {
         AvocadoAnim.Play("Happy Jump");
-        dialogue.DialogueText = "Here we are at my house";
+        dialogue.DialogueText = "Here we are at my place";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         Invoke("StartPickGame", 5);
@@ -133,7 +133,7 @@ public class Avocado : MonoBehaviour
 
     public void StartPickGame()
     {
-        dialogue.DialogueText = "Let's make some tea! Try to peak correct ingridients!";
+        dialogue.DialogueText = "Let's make some tea! Try to pick suitable ingredients!";
         PickRightGame.enabled = true;
         dialogue.HappyVoise = true;
         dialogue.Go = true;
@@ -156,7 +156,7 @@ public class Avocado : MonoBehaviour
 
     public void EndPickGame()
     {
-        dialogue.DialogueText = "Thanks for the help! See you later!!!";
+        dialogue.DialogueText = "Thanks for help! See you later!!!";
         dialogue.HappyVoise = true;
         dialogue.Go = true;
         RightHand.Play("Bye");
