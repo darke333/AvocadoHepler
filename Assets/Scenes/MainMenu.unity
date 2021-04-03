@@ -6246,7 +6246,7 @@ PrefabInstance:
     - target: {fileID: 4110462525404000632, guid: b3d37a6e84276584b9f7423eefa3192f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4110462525404000631, guid: b3d37a6e84276584b9f7423eefa3192f,
         type: 3}
@@ -6333,11 +6333,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Avocado
       objectReference: {fileID: 0}
-    - target: {fileID: 3123766844169505577, guid: cc8bdccfee4542343b0f85ade661a532,
-        type: 3}
-      propertyPath: dialogue
-      value: 
-      objectReference: {fileID: 1724760324}
     - target: {fileID: 3123766844169505578, guid: cc8bdccfee4542343b0f85ade661a532,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6393,6 +6388,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3123766844169505577, guid: cc8bdccfee4542343b0f85ade661a532,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 1724760324}
     m_RemovedComponents:
     - {fileID: 3123766844169505577, guid: cc8bdccfee4542343b0f85ade661a532, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cc8bdccfee4542343b0f85ade661a532, type: 3}
@@ -6822,7 +6822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07994bfe8b0e4adb97d706de5dea48d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
